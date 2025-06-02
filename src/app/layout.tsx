@@ -2,15 +2,9 @@ import "~/styles/globals.css";
 
 import { type Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ClerkProvider } from '@clerk/nextjs';
 
 import { TRPCReactProvider } from "~/trpc/react";
-
-import { type Metadata } from 'next'
-
-import {
-  ClerkProvider,
-} from '@clerk/nextjs'
-
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -28,11 +22,11 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <ClerkProvider>
-    <html lang="en" className={`${geist.variable}`}>
-      <body>
-        <TRPCReactProvider>{children}</TRPCReactProvider>
-      </body>
-    </html>
+      <html lang="en" className={`${geist.variable}`}>
+        <body>
+          <TRPCReactProvider>{children}</TRPCReactProvider>
+        </body>
+      </html>
     </ClerkProvider>
   );
 }
